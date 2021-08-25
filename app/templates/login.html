@@ -5,12 +5,12 @@
     <h3>Please, submit your master password. </h3>
     <form action="" method="POST">
         <label for="" class="mb-2"><strong>Master Password:</strong></label>
-        <input type="password" class="form-control" style="width:25%">
-        <button class="btn btn-success mt-2">Ok</button>
+        <input type="password"  name="mp" class="form-control" style="width:25%" required>
+        <button class="btn btn-success mt-2 mb-3">Enter</button>
      </form>
-     <div id="app" class="mt-2"></div>
+     <div id="app"></div>
      <div class="mt-2">
-         <a href="#" class="text-dark "> I have not a Master Password...</a>
+         <a href="{{ url_for('register')}}" class="text-white "> I have NOT a Master Password...</a>
     </div>
 </center>
 <script src={{ url_for('static', filename='js/vue.js')}}></script>

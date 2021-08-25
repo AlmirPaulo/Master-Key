@@ -4,12 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "*"
-flask-jwt = "*"
-flask-sqlalchemy = "*"
+Flask = "*"
+Flask-JWT = "*"
+Flask-SQLAlchemy = "*"
+flask-jwt-extended = "*"
 
 [dev-packages]
 grip = "*"
+jedi = "*"
 
 [requires]
 python_version = "3.8"
