@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div id="app"></div>
+<script src={{ url_for('static', filename='js/vue.js')}}></script>
+<script src={{ url_for('static', filename='js/home.js')}}></script>
+
+{% endblock %}
