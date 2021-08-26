@@ -3,17 +3,14 @@
 
 {% block body %}
 <center class="container mt-5">
-  <h3>Let's register your Master Password!</h3>
-  <form action="{{ url_for('register')}}" method="POST">
-      <label for="" class="mb-2"><strong> Choose a Master Password:</strong></label>
-        <input type="password" name="mp"  class="form-control" style="width:25%" required>
+        <h3>Let's register your Master Password!</h3>
+        <label for="" class="mb-2"><strong> Choose a Master Password:</strong></label>
+        <input type="password" id="mp"  class="form-control" style="width:25%" required>
         <label for="" class="mb-2 mt-2"><strong>Repeat your Master Password:</strong></label>
-        <input type="password" name="repeat-mp"  class="form-control" style="width:25%" required>
+        <input type="password" id="repeat-mp"  class="form-control" style="width:25%" required>
         <label for="" class="mb-2 mt-2"><strong>Set a hint to help you in case you forget your Master Password:</strong></label>
-        <input type="text" name="hint"  class="form-control" style="width:25%" required>
+        <input type="text" id="hint"  class="form-control" style="width:25%" required>
         <div id="app"></div>
-        <button class="btn btn-success mt-2 mb-3">Ok!</button>
-     </form>
 </center>
 <script src="{{url_for('static', filename='js/vue.js')}}"></script>
 <script src="{{url_for('static', filename='js/errors.js')}}"></script>

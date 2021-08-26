@@ -1,15 +1,14 @@
 from flask import request, url_for, redirect
 from werkzeug.security import generate_password_hash
 from . import db
-from .pass_gen import generate_password
 from .models import Master_Password
-
 
 abc = 'qwertyuiopasdfghjklzxcvbnm'
 
 def validations(tested_string, check_string):
-    # if db_check:
-    #     return f'You already have a Master Password. {db_check}'
+    db_check = Master_Password.query.filter_by(id=1).first()
+    if db_check:
+        return f'You already have a Master Password.'
 
     if any(i in tested_string for i in '0123456789') == False:
         return 'Your Master Password must to be alpanumeric.'
@@ -31,12 +30,16 @@ def validations(tested_string, check_string):
 
 
 def create_mp():
-    mp = request.form.get('mp')
-    repeat_mp = request.form.get('repeat-mp')
-    hint = request.form.get('hint')
+    data = request.get_json()
+    print(data)
+    mp = data['mp']
+    hint = data['hint']
+    repeat_mp = data['repeat_mp']
 
     if validations(mp, repeat_mp) == 'OK':
-        pass
-        #here goes the register process
+
+        db.session.add(Master_Password(mp=generate_password_hash(mp, 'sha256'), hint=hint))
+        db.session.commit()
+        return 'Master Password created Succesfully!\nNow you may Login.'
     else:
         return validations(mp, repeat_mp)
