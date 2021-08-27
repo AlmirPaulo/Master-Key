@@ -1,6 +1,7 @@
 from flask import render_template, request, jsonify
 from . import app
 from .register import create_mp
+from .auth import verify_login
 from .models import Passwords, Master_Password
 
 
@@ -22,10 +23,21 @@ def check_db():
 
     return jsonify(db_dict)
 
+@app.route('/hint')
+def hint():
+    mp = Master_Password.query.filter_by(id=1).first()
+    return jsonify(mp.hint)
 
-@app.route('/login')
+
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    msg = ''
+    if request.method == 'POST':
+        mp = request.data.decode('utf-8')
+        msg = verify_login(mp)
+
+    return render_template('login.html', msg = msg)
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
