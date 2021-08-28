@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 Flask-SQLAlchemy = "*"
-Flask-JWT-Extended = "*"
 flask = "*"
+flask-cors = "*"
+flask-login = "*"
 
 [dev-packages]
 grip = "*"
-jedi = "*"
 
 [requires]
 python_version = "3.8"

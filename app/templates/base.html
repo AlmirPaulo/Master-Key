@@ -7,6 +7,17 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
 </head>
 <body class="bg-secondary">
+  <header>
+  <nav class="navbar navbar-expand bg-secondary navbar-light">
+    <div class="container">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="{{url_for('home')}}">My Paswords</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url_for('login')}}">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url_for('register')}}">Register</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
   {% block body %} {% endblock %}
 </body>
 </html>

@@ -12,7 +12,7 @@ new Vue({
             req.open('GET', url, false)
             req.send()
             const hint = req.responseText
-            alert(hint)
+            alert(`Here is a hint to help you remember your Master Password: ${hint}`)
         }
     }
 

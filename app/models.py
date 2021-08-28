@@ -8,6 +8,15 @@ class Master_Password(db.Model):
     def __repr__(self):
         return f'<Master_Password {self.mp} - {self.hint}>'
 
+    def is_active(self):
+        return True
+
+    def is_authenticated(self):
+        return True
+    
+    def get_id(self):
+        return self.id
+
 class Passwords(db.Model):
     id = db.Column(db.Integer(), primary_key=True)
     services = db.Column(db.String(255), unique=True, nullable=False) 
